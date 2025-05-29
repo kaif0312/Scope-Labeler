@@ -7,8 +7,8 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 # Create Flask app
 app = Flask(__name__, 
-           static_folder='Evaluation System APP/static',
-           template_folder='Evaluation System APP/templates')
+           static_folder='Evaluation_System_APP/static',
+           template_folder='Evaluation_System_APP/templates')
 app.secret_key = os.getenv("SECRET_KEY", "scopebuilder_secret_key")
 
 # Import blueprints
