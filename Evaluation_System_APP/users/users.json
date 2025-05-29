@@ -1,0 +1,16 @@
+{
+  "68729bc0-83b3-433c-9f3f-51e20347f597": {
+    "id": "68729bc0-83b3-433c-9f3f-51e20347f597",
+    "username": "admin",
+    "password": "scrypt:32768:8:1$lh4fDM6vkGA5wRt4$a005022ea660238cfbc3d63e421309ca91eecb650a2f971ac3298bcf6ed51ea7b61433a2f7a53776348856ab02e84890b63663cef9e3eedffeea5cc80696591c",
+    "role": "admin",
+    "created_at": "2025-05-25 23:48"
+  },
+  "61b9b38d-240a-4cc0-8345-69e8863f74ac": {
+    "id": "61b9b38d-240a-4cc0-8345-69e8863f74ac",
+    "username": "kaif",
+    "password": "scrypt:32768:8:1$TkCcId5c3LJP5SBm$947f7006656c18dce53d1d41e390f93b82c13cc13748775abced44fbe0e39d2396f20ce920b5a7414cc8623eadb3125033e16f3e05806ccd12aa29d7dedf8283",
+    "role": "admin",
+    "created_date": "2025-05-26 16:29"
+  }
+}

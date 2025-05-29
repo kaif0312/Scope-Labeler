@@ -1,0 +1,12 @@
+run = "python3.8 app.py"
+entrypoint = "app.py"
+
+[env]
+PYTHONPATH = "/home/runner/${REPL_SLUG}"
+
+[nix]
+channel = "stable-22_11"
+
+[deployment]
+run = ["sh", "-c", "python3.8 app.py"]
+deploymentTarget = "cloudrun" 

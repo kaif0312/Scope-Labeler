@@ -1,0 +1,231 @@
+/* Main CSS styles for the entire application */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.header {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header h1 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.header p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+.user-info {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.nav-links { 
+    margin-bottom: 20px; 
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #4CAF50;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-links a { 
+    color: #4CAF50;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #f0f8f0;
+    transition: background-color 0.2s;
+}
+
+.nav-links a:hover {
+    background-color: #e0f0e0;
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 8px;
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #43a047;
+}
+
+.btn-secondary {
+    background: #e9ecef;
+    color: #2c3e50;
+}
+
+.btn-secondary:hover {
+    background: #dee2e6;
+}
+
+.btn-danger {
+    background: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d32f2f;
+}
+
+.btn-info {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #1976D2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    color: #666;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 8px 12px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.error {
+    color: #f44336;
+    margin-bottom: 20px;
+    text-align: center;
+} 

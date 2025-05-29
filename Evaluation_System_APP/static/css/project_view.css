@@ -1,0 +1,52 @@
+.upload-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.upload-form h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.pdfs-list {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pdfs-list h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.pdf-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.pdf-item:last-child {
+    border-bottom: none;
+}
+
+.pdf-name {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.pdf-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.pdf-actions {
+    display: flex;
+    gap: 10px;
+} 
