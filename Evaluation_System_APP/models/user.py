@@ -1,9 +1,34 @@
 import os
 import json
+import hashlib
 from uuid import uuid4
 from datetime import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
 from Evaluation_System_APP.config import USERS_FOLDER
+
+# Custom password hashing functions that use SHA-256 (supported in Python 3.13)
+def generate_password_hash(password):
+    """Generate a SHA-256 hash of the password with a salt"""
+    salt = os.urandom(16).hex()  # Generate a random salt
+    hash_obj = hashlib.sha256((salt + password).encode())
+    password_hash = hash_obj.hexdigest()
+    return f"sha256${salt}${password_hash}"
+
+def check_password_hash(stored_hash, password):
+    """Check if the password matches the stored hash"""
+    try:
+        # Parse the stored hash format: algorithm$salt$hash
+        alg, salt, hash_value = stored_hash.split('$')
+        if alg != 'sha256':
+            # Handle old format hashes (from werkzeug)
+            # This is a placeholder for migration - won't work for old hashes
+            return False
+            
+        # Compute hash with the same salt
+        computed_hash = hashlib.sha256((salt + password).encode()).hexdigest()
+        return computed_hash == hash_value
+    except Exception:
+        # Any parsing error means invalid hash format
+        return False
 
 def get_users():
     """Load all users from the users folder"""
