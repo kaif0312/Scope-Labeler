@@ -24,7 +24,7 @@ AZURE_ENDPOINT = os.getenv("AZURE_VISION_ENDPOINT", "https://scopebuilder.cognit
 AZURE_KEY = os.getenv("AZURE_VISION_KEY", "75gzAOgClEIGv8CxaYZcre8X04QxJZGE256MK4y7dMaL1sfLtnHdJQQJ99BEACYeBjFXJ3w3AAAFACOGeQxC")
 
 # YOLO configuration
-YOLO_WEIGHTS = os.getenv("YOLO_WEIGHTS", "/home/kaifu10/Desktop/wyreai intern/YOLO TRAINING/165images_trained/detect/train/weights/best.pt")
+YOLO_WEIGHTS = os.getenv("YOLO_WEIGHTS", os.path.join(APP_ROOT, 'weights', 'best.pt'))
 
 # PDF processing settings
 PDF_DPI = 100  # Reduced from 150 to lower memory usage

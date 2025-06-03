@@ -1,0 +1,36 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Development/IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment
+.env
+
+# Large files and caches that shouldn't be in the image
+Evaluation_System_APP/uploads/*
+Evaluation_System_APP/thumbnails/*
+Evaluation_System_APP/annotated_data/*
+flask_session/*
+
+# Don't ignore the weights folder as we need it for YOLO
+!Evaluation_System_APP/weights/best.pt

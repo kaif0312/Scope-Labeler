@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  scopebuilder:
+    image: 982081086086.dkr.ecr.us-east-1.amazonaws.com/scopebuilder:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      # Mount these directories to persist data between container restarts
+      - ./Evaluation_System_APP/uploads:/app/Evaluation_System_APP/uploads
+      - ./Evaluation_System_APP/thumbnails:/app/Evaluation_System_APP/thumbnails
+      - ./Evaluation_System_APP/annotated_data:/app/Evaluation_System_APP/annotated_data
+      - ./Evaluation_System_APP/projects:/app/Evaluation_System_APP/projects
+      - ./Evaluation_System_APP/users:/app/Evaluation_System_APP/users
+      - ./flask_session:/app/flask_session
+    environment:
+      - SECRET_KEY=scopebuilder_secret_key
+      - FLASK_ENV=production
+      - HOST=0.0.0.0
+      - PORT=9090
+      # Uncomment and set these if you want to override the defaults
+      # - AZURE_VISION_ENDPOINT=your_azure_endpoint
+      # - AZURE_VISION_KEY=your_azure_key
+    restart: always
