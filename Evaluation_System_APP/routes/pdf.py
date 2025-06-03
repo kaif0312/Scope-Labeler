@@ -71,12 +71,12 @@ def select_sheet(upload_id):
 @login_required
 def process_sheet(upload_id, page_num):
     """Process a sheet from a PDF"""
-    success = process_sheet_function(upload_id, int(page_num))
+    success, error_message = process_sheet_function(upload_id, int(page_num))
     
     if success:
         return redirect(url_for('pdf.sheet_progress', upload_id=upload_id, page_num=page_num))
     else:
-        return 'Error processing sheet', 500
+        return f'Error processing sheet: {error_message}', 500
 
 @pdf_bp.route('/sheet_progress/<upload_id>/<int:page_num>')
 @login_required
@@ -84,14 +84,26 @@ def sheet_progress(upload_id, page_num):
     # Load metadata
     meta = get_crops_metadata(upload_id, page_num)
     
-    # If the sheet hasn't been processed yet, process it first
+    # If the sheet hasn't been processed yet, process it directly
     if not meta:
-        return redirect(url_for('pdf.process_sheet', upload_id=upload_id, page_num=page_num))
+        success, error_message = process_sheet_function(upload_id, int(page_num))
+        if not success:
+            return f'Error processing sheet: {error_message}', 500
+        # Reload metadata after processing
+        meta = get_crops_metadata(upload_id, page_num)
+        if not meta:
+            return 'Error loading sheet metadata after processing', 500
     
     # Ensure all required keys exist
     if not all(key in meta for key in ['crops', 'completed_crops', 'total_figures']):
-        # If metadata is incomplete, reprocess the sheet
-        return redirect(url_for('pdf.process_sheet', upload_id=upload_id, page_num=page_num))
+        # If metadata is incomplete, process the sheet directly
+        success, error_message = process_sheet_function(upload_id, int(page_num))
+        if not success:
+            return f'Error processing sheet: {error_message}', 500
+        # Reload metadata after processing
+        meta = get_crops_metadata(upload_id, page_num)
+        if not all(key in meta for key in ['crops', 'completed_crops', 'total_figures']):
+            return 'Error: Metadata is still incomplete after processing', 500
     
     # Calculate completion percentage
     total_figures = meta['total_figures']

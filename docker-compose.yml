@@ -17,7 +17,7 @@ services:
       - ./flask_session:/app/flask_session
     environment:
       - SECRET_KEY=scopebuilder_secret_key
-      - FLASK_ENV=production
+      - FLASK_DEBUG=true
       - HOST=0.0.0.0
       - PORT=9090
       # Uncomment and set these if you want to override the defaults

@@ -61,7 +61,7 @@ def index():
 if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     port = int(os.getenv('PORT', '9090'))  # Matches Docker exposed port
-    debug = os.getenv('FLASK_ENV', 'production') == 'development'
+    debug = os.getenv('FLASK_DEBUG', 'false').lower() == 'true'
     
     print(f"Starting Flask app on {host}:{port} with debug={debug}")
     app.run(host=host, port=port, debug=debug) 
